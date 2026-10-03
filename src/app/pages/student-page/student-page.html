@@ -1,0 +1,156 @@
+<div class="jumbotron jumbotron-fluid m-3 py-4 rounded">
+  <div class="container">
+    <h1 class="display-6">Student</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12 col-md-6">
+    <h2>Student Data</h2>
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Student Id</th>
+          <th scope="col">Student Name</th>
+          <th scope="col">Department</th>
+          <th scope="col">Email</th>
+          <th>Manage</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (student of students; track student.studentId) {
+        <tr>
+          <td>{{student.studentId}}</td>
+          <td>{{student.studentName}}</td>
+          <td>{{student.department}}</td>
+          <td>{{student.email}}</td>
+          <td>
+            <button class="btn btn-sm btn-warning" (click)="selectStudent(student)">Update</button>
+            <button class="btn btn-sm btn-danger" (click)="deleteStudent(student)">Delete</button>
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+  <div class="col-sm-12 col-md-6">
+    <h2>Student Form</h2>
+    <!-- FORM -->
+    <form [formGroup]="studentForm" (ngSubmit)="onSubmit()" novalidate>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="student-id" placeholder="" formControlName="studentId"
+          [ngClass]="{'is-invalid': (f['studentId'].touched) && (f['studentId'].errors)}">
+        <label for="student-id">Student ID:</label>
+        @if ((f['studentId'].touched) && (f['studentId'].errors)) {
+        <div class="invalid-feedback">
+          @if (f['studentId']['errors']['required']) {
+          <div class="">Please enter Student ID</div>
+          }
+          @if (f['studentId']['errors']['pattern']) {
+          <div class="">Student ID must be 9 number</div>
+          }
+        </div>
+        }
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="student-name" placeholder="" formControlName="studentName"
+          [ngClass]="{'is-invalid': (f['studentName'].touched) && (f['studentName'].errors)}">
+        <label for="student-name">Student Name:</label>
+        @if ((f['studentName'].touched) && (f['studentName'].errors)) {
+        <div class="invalid-feedback">
+          @if (f['studentName']['errors']['required']) {
+          <div class="">Please enter Student Name</div>
+          }
+        </div>
+        }
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="department" placeholder="" formControlName="department"
+<<<<<<< HEAD
+          [ngClass]="{'is-invalid': (f['department'].touched) && (f['department'].errors)}">
+=======
+        [ngClass]="{'is-invalid': (f['department'].touched) && (f['department'].errors)}">
+>>>>>>> 3eaf7edfffc809d644259dacfc29969faa8219ae
+        <label for="department">Department:</label>
+        @if ((f['department'].touched) && (f['department'].errors)) {
+        <div class="invalid-feedback">
+          @if (f['department']['errors']['required']) {
+          <div class="">Please enter Department Name</div>
+          }
+        </div>
+        }
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="faculty" placeholder="" formControlName="faculty"
+<<<<<<< HEAD
+          [ngClass]="{'is-invalid': (f['faculty'].touched) && (f['faculty'].errors)}">
+=======
+        [ngClass]="{'is-invalid': (f['faculty'].touched) && (f['faculty'].errors)}">
+>>>>>>> 3eaf7edfffc809d644259dacfc29969faa8219ae
+        <label for="faculty">Faculty:</label>
+        @if ((f['faculty'].touched) && (f['faculty'].errors)) {
+        <div class="invalid-feedback">
+          @if (f['faculty']['errors']['required']) {
+          <div class="">Please enter Faculty Name</div>
+          }
+        </div>
+        }
+      </div>
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="email" placeholder="" formControlName="email"
+<<<<<<< HEAD
+          [ngClass]="{'is-invalid': (f['email'].touched) && (f['email'].errors)}">
+=======
+        [ngClass]="{'is-invalid': (f['email'].touched) && (f['email'].errors)}">
+>>>>>>> 3eaf7edfffc809d644259dacfc29969faa8219ae
+        <label for="email">E-mail:</label>
+        @if ((f['email'].touched) && (f['email'].errors)) {
+        <div class="invalid-feedback">
+          @if (f['email']['errors']['required']) {
+          <div class="">Please enter Email</div>
+          }
+          @if (f['email']['errors']['email']) {
+          <div class="">Please enter the correct Email</div>
+          }
+        </div>
+        }
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="tel" placeholder="" formControlName="tel"
+<<<<<<< HEAD
+          [ngClass]="{'is-invalid': (f['tel'].touched) && (f['tel'].errors)}">
+=======
+        [ngClass]="{'is-invalid': (f['tel'].touched) && (f['tel'].errors)}">
+>>>>>>> 3eaf7edfffc809d644259dacfc29969faa8219ae
+        <label for="tel">Tel.:</label>
+        @if ((f['tel'].touched) && (f['tel'].errors)) {
+        <div class="invalid-feedback">
+          @if (f['tel']['errors']['required']) {
+          <div class="">Please enter Telephone Number</div>
+          }
+          @if (f['tel']['errors']['pattern']) {
+          <div class="">Please enter the correct Telephone Number</div>
+          }
+        </div>
+        }
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="picture" placeholder="" formControlName="picture"
+<<<<<<< HEAD
+          [ngClass]="{'is-invalid': (f['picture'].touched) && (f['picture'].errors)}">
+=======
+        [ngClass]="{'is-invalid': (f['picture'].touched) && (f['picture'].errors)}">
+>>>>>>> 3eaf7edfffc809d644259dacfc29969faa8219ae
+        <label for="picture">Picture URL:</label>
+        @if ((f['picture'].touched) && (f['picture'].errors)) {
+        <div class="invalid-feedback">
+          @if (f['picture']['errors']['required']) {
+          <div class="">Please enter picture URL</div>
+          }
+        </div>
+        }
+      </div>
+      <button class="btn btn-primary" type="submit" [disabled]="studentForm.invalid">Submit</button>
+      <button class="btn btn-danger" type="button" (click)="resetForm()">Reset</button>
+    </form>
+  </div>
+</div>
